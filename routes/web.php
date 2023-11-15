@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HouseController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/houses/create', [HouseController::class, 'create'])->name('houses.create');
+Route::post('/houses', [HouseController::class, 'store'])->name('houses.store');
+Route::get('/houses/{house}/edit', [HouseController::class, 'edit'])->name('houses.edit');
+Route::put('/houses/{house}', [HouseController::class, 'update'])->name('houses.update');
+Route::get('/houses/{house}', [HouseController::class, 'show'])->name('houses.show');
+Route::get('/houses/search', [HouseController::class, 'search'])->name('houses.search');
+Auth::routes();
+
