@@ -14,7 +14,7 @@
 	    <meta name="email" content="support@shreethemes.in" />
 	    <meta name="version" content="1.0.0" />
 	    <!-- favicon -->
-        <link href="images/favicon.ico" rel="shortcut icon">
+        <link href="{{asset('images/favicon.ico')}}"  rel="shortcut icon">
 		<!-- Bootstrap core CSS -->
 	    <link href="{{asset('css/bootstrap.min.css')}}"  type="text/css" rel="stylesheet" />
         <!-- Slider -->               
@@ -27,18 +27,21 @@
         <link href="{{asset('css/materialdesignicons.min.css')}}"  rel="stylesheet" type="text/css" />
 	    <!-- Custom  Css -->
 	    <link href="{{asset('css/style.min.css')}}"  rel="stylesheet" type="text/css" id="theme-opt" />
+
+        @laravelPWA
+        @livewireStyles
 	</head>
 
 	<body>
         <!-- Navbar STart -->
         <header id="topnav" class="defaultscroll sticky">
             <div class="container">
-                <a class="logo" href="index.html">
+                <a class="logo" href="/" wire:navigate>
                     <span class="logo-light-mode">
-                        <img src="images/logo-icon.png" class="l-dark" alt="" height="60" >
-                        <img src="images/logo-icon-white.png" class="l-light" height="60" alt="">
+                        <img src="{{asset('images/logo-icon.png')}}"  class="l-dark" alt="" height="60" >
+                        <img src="{{asset('images/logo-icon.png')}}"  class="l-light" height="60" alt="">
                     </span>
-                    <img src="images/logo-icon-white.png" class="logo-dark-mode"  height="60" alt="">
+                    <img src="{{asset('images/logo-icon-white.png')}}"  class="logo-dark-mode"  height="60" alt="">
                 </a>
 
                 <div class="menu-extras">
@@ -61,7 +64,7 @@
                 </ul>
         
                 <div id="navigation">
-                    <ul class="navigation-menu nav-left nav-light">
+                    <ul class="navigation-menu nav-left @yield("dark","nav-light")">
                        
                         
                         <li><a href="buy.html" class="sub-menu-item">Find rent</a></li>
@@ -89,7 +92,7 @@
                             <div class="row">
                                 <div class="col-lg-5 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
                                     <a href="#" class="logo-footer">
-                                        <img src="images/logo-icon-white.png" height="70" alt="">
+                                        <img src="{{asset('images/logo-icon-white.png')}}"  height="70" alt="">
                                     </a>
                                     <p class="mt-4">A great plateform to buy, sell and rent your properties without any agent or commisions.</p>
                                     <ul class="list-unstyled social-icon foot-social-icon mb-0 mt-4">
@@ -139,7 +142,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="text-center">
-                                <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> NUB. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="#" target="_blank" class="text-reset">Team Zx</a>.</p>
+                                <p class="mb-0">© {{date("Y")}} NUB. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="#" target="_blank" class="text-reset">Team Zx</a>.</p>
                             </div>
                         </div><!--end col-->
                     </div><!--end row-->
@@ -165,6 +168,7 @@
 	    <!-- Custom -->
 	    <script src="{{asset('js/plugins.init.js')}}" ></script>
 	    <script src="{{asset('js/app.js')}}" ></script>
+        @livewireScripts
     </body>
 
 <!-- Mirrored from shreethemes.in/towntor/layouts/index-two.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Nov 2023 15:17:57 GMT -->
